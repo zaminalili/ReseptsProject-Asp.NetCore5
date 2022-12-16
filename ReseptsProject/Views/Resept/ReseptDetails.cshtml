@@ -1,0 +1,41 @@
+﻿@model ReseptsProject.Models.Resept
+
+@{
+    ViewData["Title"] = "Resept";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    
+</div>
+
+<section id="price">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						<div class="pricing-list">
+							<div class="title">
+							<h3>Yeməyin <span>Resepti</span></h3>
+							</div>
+							<ul>
+								<li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+									<div class="item">
+										<div class="item-title">
+											<h2>@Model.EatName</h2>
+											<div class="border-bottom"></div>
+										<span class="badge text-bg-primary">@Model.Category</span>
+										</div>
+										<p>@Model.Resept1</p>
+									</div>
+								</li>
+							</ul>
+							<a class="btn btn-default pull-right wow bounceIn" data-wow-duration="500ms" data-wow-delay="1200ms"
+								asp-controller="Resept" asp-action="GetResepts" role="button">Geri</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+

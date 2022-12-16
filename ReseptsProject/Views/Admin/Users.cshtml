@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ReseptsProject.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>İstifadəçilər</h4>
+
+<p>
+    <a asp-action="AddUser" class="btn btn-outline-primary btn-sm">Yeni istifadəçi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ad
+            </th>
+            <th>
+                Soyad
+            </th>
+            <th>
+                Mail
+            </th>
+            <th>
+                Telefon
+            </th>
+            
+            <th>
+                Səlahiyyət
+            </th>
+            <th>
+                Aktiv
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserSurename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="GetUser" asp-route-id="@item.UserId">Redaktə</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

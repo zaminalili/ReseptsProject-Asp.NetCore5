@@ -1,0 +1,37 @@
+﻿@model ReseptsProject.Models.Category
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>Kateqoriya əlavə et</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddCategory" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-2">
+                <label asp-for="CategoryName" class="control-label">Kateqoriya adı</label>
+                <input asp-for="CategoryName" class="form-control" required/>
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Active" class="control-label">Aktiv</label>
+                <span asp-validation-for="Active" class="text-danger"></span>
+
+                <select asp-for="Active" class="form-select form-select" aria-label=".form-select-sm example">
+                    <option value="True" selected>Bəli</option>
+                    <option value="False">Xeyr</option>
+
+                </select>
+            </div>
+            <div class="form-group mt-3 d-flex justify-content-between">
+                <input type="submit" value="Əlavə et" class="btn btn-outline-primary" />
+                <a asp-action="Categories">Geri</a>
+            </div>
+        </form>
+    </div>
+</div>
+

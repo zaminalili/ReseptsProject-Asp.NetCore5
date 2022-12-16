@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_adminLayout";
+}
+
+@model IEnumerable<Page>
+
+<h3>Səhifələr</h3>
+
+<div class="col-md-4 py-2">
+    <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="AddPage">
+        Yeni Səhifə
+    </a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th scope="col">İD</th>*@
+            <th scope="col">Başlıq</th>
+            <th scope="col">Aktiv</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                @*<th scope="row">@p.PageId</th>*@
+                <td>@p.Title</td>
+                <td>@p.Active</td>
+                <td>
+                    <a asp-action="GetPage" asp-route-id="@p.PageId" class="btn btn-outline-success btn-sm">
+                        Redaktə
+                    </a>
+                    <a asp-action="DeletePage" asp-route-id="@p.PageId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Səhifə silinsin mi?')">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

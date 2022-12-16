@@ -1,0 +1,42 @@
+﻿@model ReseptsProject.Models.Resept
+
+@{
+    ViewData["Title"] = "AddResept";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<h4>Yeni resept</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddResept">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EatName" class="control-label">Yemək adı</label>
+                <input asp-for="EatName" class="form-control" />
+                <span asp-validation-for="EatName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resept1" class="control-label">Resepti</label>
+                <input asp-for="Resept1" class="form-control" />
+                <span asp-validation-for="Resept1" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Category" class="control-label">Categoriya</label>
+                <select asp-for="Category" class ="form-control" asp-items="ViewBag.Category"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Active" class="control-label"></label>
+                <input asp-for="Active" class="form-control" />
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3 d-flex justify-content-between">
+                <input type="submit" value="Əlavə et" class="btn btn-outline-primary sm" />
+                <a asp-action="Resepts">Geri</a>
+            </div>
+        </form>
+    </div>
+</div>

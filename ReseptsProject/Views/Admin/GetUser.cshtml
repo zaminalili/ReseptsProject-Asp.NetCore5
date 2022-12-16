@@ -1,0 +1,53 @@
+﻿@model ReseptsProject.Models.User
+
+@{
+    ViewData["Title"] = "GetUser";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>İstifadəçi redaktə</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="GetUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            
+           
+      
+  
+            <div class="form-group">
+                <label asp-for="Authority" class="control-label"></label>
+                <select asp-for="Authority" class="form-select form-select" aria-label=".form-select-sm example">
+                    <option value="True" selected>Admin</option>
+                    <option value="False">Üzv</option>
+                </select>
+                <span asp-validation-for="Authority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Active" class="control-label"></label>
+                <select asp-for="Active" class="form-select form-select" aria-label=".form-select-sm example">
+                    <option value="True" selected>Bəli</option>
+                    <option value="False">Xeyr</option>
+                </select>
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deleted" class="control-label"></label>
+                <input asp-for="Deleted" class="form-control" />
+                <span asp-validation-for="Deleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

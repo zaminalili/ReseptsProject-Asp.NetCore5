@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ReseptsProject.Models.Resept>
+
+@{
+    ViewData["Title"] = "CategoryResepts";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>Reseptlər</h4>
+
+<p>
+    <a asp-action="AddResept" class="btn btn-outline-primary btn-sm">Yeni resept</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Yemək adı
+            </th>
+            <th>
+                Resepti
+            </th>
+            <th>
+                Yaradılma tarixi
+            </th>
+            <th>
+                Aktiv
+            </th>
+            <th>
+                Kateqoriya
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EatName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Resept1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="GetResept" asp-route-id="@item.ReseptId" class="btn btn-outline-success btn-sm">Redaktə</a>
+                    <a asp-action="DeleteResept" asp-route-id="@item.ReseptId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Resept silinsin mi?')">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a asp-action="Resepts">Geri</a>

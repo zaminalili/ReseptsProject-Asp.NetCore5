@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ReseptsProject.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>Kateqoriyalar</h4>
+
+<p>
+    <a asp-action="AddCategory" class="btn btn-outline-primary btn-sm">Yeni kateqoriya</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kateqoriya adı
+            </th>
+            <th>
+                Aktiv
+            </th>
+ 
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            
+            <td>
+                    <a asp-action="GetCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-success btn-sm">Redaktə</a>
+                    <a asp-action="DeleteCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Kateqoriya silinsin mi?')">Sil</a>
+                    <a asp-action="CategoryResepts" asp-route-id="@item.CategoryId" class="btn btn-outline-info btn-sm">Yeməklər</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

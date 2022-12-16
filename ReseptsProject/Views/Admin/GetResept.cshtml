@@ -1,0 +1,45 @@
+﻿@model ReseptsProject.Models.Resept
+
+@{
+    ViewData["Title"] = "GetResept";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>Resept redaktə</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="UpdateResept">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReseptId" />
+            <div class="form-group">
+                <label asp-for="EatName" class="control-label">Yemək adı</label>
+                <input asp-for="EatName" class="form-control" />
+                <span asp-validation-for="EatName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resept1" class="control-label">Resept</label>
+                <input asp-for="Resept1" class="form-control" />
+                <span asp-validation-for="Resept1" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Active" class="control-label">Aktiv</label>
+                <input asp-for="Active" class="form-control" />
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mt-3 d-flex justify-content-between">
+                <input type="submit" value="Yadda saxla" class="btn btn-outline-primary" />
+                <a asp-action="Resepts">Geri</a>
+            </div>
+        </form>
+    </div>
+</div>

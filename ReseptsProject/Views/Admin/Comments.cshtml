@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ReseptsProject.Models.Comment>
+
+@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4>Rəylər</h4>
+
+
+<label for="typeOfList" class="control-label">Filtr</label>
+<div class="row mb-3">
+    <div class="col-md-3">
+        <form asp-action="Comments" method="post">
+            <div class="form-group d-flex justify-content-between">
+                <select id="typeOfList" name="typeOfList" class="form-select form-select" aria-label=".form-select-sm example">
+                    <option value="Hamısı" selected>Hamısı</option>
+                    <option value="Təsdiqlənmiş">Təsdiqlənmiş</option>
+                    <option value="Təsdiqlənməmiş">Təsdiqlənməmiş</option>
+                </select>
+                <input type="submit" value="Göstər" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rəy
+            </th>
+            <th>
+                İstifadəçi adı
+            </th>
+            <th>
+                Yemək adı
+            </th>
+            <th>
+                Yazılma tarixi
+            </th>
+            <th>
+                Təsdiqlənmə
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReseptNavigation.EatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            
+            
+            <td>
+                    <a asp-action="Confirm" asp-route-id="@item.CommentId" class="btn btn-outline-secondary btn-sm" onclick="return confirm('Rəy təsdiqlənsin mi?')">Təsdiqlə</a>
+                    <a asp-action="DeleteConfirm" asp-route-id="@item.CommentId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Təsdiqlənmə silinsin mi?')">Təsdiqi sil</a>
+            
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

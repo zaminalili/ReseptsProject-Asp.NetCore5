@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ReseptsProject.Models.Resept>
+
+@{
+    ViewData["Title"] = "CategoryResepts";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h1>CategoryResepts</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Yemək adı
+            </th>
+            <th>
+                Resepti
+            </th>
+            <th>
+                Yaradılma tarixi
+            </th>
+            <th>
+                Aktiv
+            </th>
+            <th>
+                Kateqoriya
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resept1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReseptId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReseptId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReseptId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+    
+</table>
+
+<a asp-action="Categories">Geri</a>
