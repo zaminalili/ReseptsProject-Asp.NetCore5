@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\CoreProject\\ReseptsProject\\ReseptsProject.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\ReseptsProject-Asp.NetCore5\\ReseptsProject\\ReseptsProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\CoreProject\\ReseptsProject\\ReseptsProject.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\ReseptsProject-Asp.NetCore5\\ReseptsProject\\ReseptsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\CoreProject\\ReseptsProject\\ReseptsProject.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\ReseptsProject-Asp.NetCore5\\ReseptsProject\\ReseptsProject.csproj",
         "projectName": "ReseptsProject",
-        "projectPath": "C:\\Users\\User\\Desktop\\CoreProject\\ReseptsProject\\ReseptsProject.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\ReseptsProject-Asp.NetCore5\\ReseptsProject\\ReseptsProject.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\CoreProject\\ReseptsProject\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\ReseptsProject-Asp.NetCore5\\ReseptsProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
